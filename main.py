@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-model = YOLO(r"C:\Users\Kelly\MAKIT\best.pt")
+model = YOLO('best.pt')
 
 @app.get("/")
 def root():
@@ -39,3 +39,4 @@ async def predict(file: UploadFile = File(...)):
             "bbox": bbox
         })
     return {"total_detections": len(detections), "detections": detections}
+
