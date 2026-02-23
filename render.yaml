@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: makit-api
+    runtime: python
+    buildCommand: "pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install fastapi uvicorn opencv-python-headless numpy python-multipart ultralytics"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    plan: free
+```
+
+Also update `requirements.txt` to just this so pip doesn't auto-install anything extra:
+```
+fastapi
+uvicorn
+opencv-python-headless
+numpy
+python-multipart
