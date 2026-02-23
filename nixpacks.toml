@@ -1,8 +1,5 @@
 [phases.setup]
 nixPkgs = ['python311']
 
-[phases.install]
-cmds = ['pip install fastapi uvicorn opencv-python-headless numpy python-multipart ultralytics==8.0.196']
-
 [start]
 cmd = 'uvicorn main:app --host 0.0.0.0 --port $PORT'
